@@ -32,12 +32,11 @@ builder.Services.AddProblemDetails();
 var app = builder.Build();
 
 // Configure Swagger
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies API v1");
-    c.RoutePrefix = string.Empty;
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies API v1"); });
+}
 
 // Configure the HTTP request pipeline.
 app.MapPost("/movies", async (MovieCreateUpdateDto movieDto, PostgresDbContext dbContext) =>

@@ -1,6 +1,0 @@
-﻿services:
-  ead-csharp-cp3:
-    image: ead-csharp-cp3
-    build:
-      context: .
-      dockerfile: ead-csharp-cp3/Dockerfile

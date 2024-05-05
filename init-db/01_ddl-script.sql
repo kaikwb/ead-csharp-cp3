@@ -11,4 +11,3 @@ CREATE TABLE movies
     budget            NUMERIC(18, 2),
     revenue           NUMERIC(18, 2)
 );
-COMMIT;

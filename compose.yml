@@ -1,0 +1,46 @@
+﻿services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: movies
+      POSTGRES_PASSWORD: movies
+      POSTGRES_DB: movies
+    ports:
+      - "5432:5432"
+    networks:
+      - ead-network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U movies" ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+  
+  ead-csharp-cp3:
+    image: ead-csharp-cp3
+    build:
+      context: .
+      dockerfile: ead-csharp-cp3/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+      - "8443:8081"
+    networks:
+      - ead-network
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: movies
+      DB_USER: movies
+      DB_PASS: movies
+      ASPNETCORE_ENVIRONMENT: Development
+
+networks:
+  ead-network:
+
+volumes:
+  db-data:

@@ -4,8 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ead-csharp-cp3", "ead-cshar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{721471EC-861A-425F-B209-72D88F70496C}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-		db\ddl-script.sql = db\ddl-script.sql
+		init-db\01_ddl-script.sql = init-db\01_ddl-script.sql
+		init-db\02_seed_data.sql = init-db\02_seed_data.sql
+		compose.yml = compose.yml
 	EndProjectSection
 EndProject
 Global
