@@ -1,4 +1,5 @@
 using DotNetEnv;
+using ead_csharp_cp3.Models.Dto;
 using ead_csharp_cp3.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -27,6 +28,65 @@ builder.Services.AddDbContext<PostgresDbContext>(options => { options.UseNpgsql(
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapPost("/movies", async (MovieCreateUpdateDto movieDto, PostgresDbContext dbContext) =>
+{
+    var movie = movieDto.ToMovie();
+    await dbContext.Movies.AddAsync(movie);
+    await dbContext.SaveChangesAsync();
+    
+    return Results.Created($"/movies/{movie.Id}", MovieDto.FromMovie(movie));
+}).Produces<MovieDto>();
+
+app.MapGet("/movies", async (PostgresDbContext dbContext) =>
+{
+    var movies = await dbContext.Movies.Select(movie => MovieDto.FromMovie(movie)).ToListAsync();
+    
+    return Results.Ok(movies);
+}).Produces<List<MovieDto>>();
+
+app.MapGet("/movies/{id}", async (int id, PostgresDbContext dbContext) =>
+{
+    var movie = await dbContext.Movies.FindAsync(id);
+    
+    return movie is not null ? Results.Ok(MovieDto.FromMovie(movie)) : Results.NotFound();
+}).Produces<MovieDto>();
+
+app.MapPut("/movies/{id}", async (int id, MovieCreateUpdateDto movieDto, PostgresDbContext dbContext) =>
+{
+    var movie = await dbContext.Movies.FindAsync(id);
+    if (movie is null)
+    {
+        return Results.NotFound();
+    }
+
+    movie.Title = movieDto.Title;
+    movie.OriginalTitle = movieDto.OriginalTitle;
+    movie.OriginalLanguage = movieDto.OriginalLanguage;
+    movie.ReleaseYear = movieDto.ReleaseYear;
+    movie.Duration = movieDto.Duration;
+    movie.ContentRating = movieDto.ContentRating;
+    movie.Genre = movieDto.Genre;
+    movie.Budget = movieDto.Budget;
+    movie.Revenue = movieDto.Revenue;
+    
+    await dbContext.SaveChangesAsync();
+    
+    return Results.Ok(MovieDto.FromMovie(movie));
+}).Produces<MovieDto>();
+
+
+app.MapDelete("/movies/{id}", async (int id, PostgresDbContext dbContext) =>
+{
+    var movie = await dbContext.Movies.FindAsync(id);
+    if (movie is null)
+    {
+        return Results.NotFound();
+    }
+
+    dbContext.Movies.Remove(movie);
+    await dbContext.SaveChangesAsync();
+    
+    return Results.NoContent();
+});
 
 app.Run();

@@ -12,30 +12,32 @@ public class Movie
     public int Id { get; set; }
 
     [Required]
-    [Column("title")]
     [MaxLength(255)]
+    [Column("title")]
     public required string Title { get; set; }
 
-    [Column("original_title")]
     [MaxLength(255)]
+    [Column("original_title")]
     public string? OriginalTitle { get; set; }
 
-    [Column("original_language")]
     [MaxLength(20)]
+    [Column("original_language")]
     public string? OriginalLanguage { get; set; }
 
+    [Required]
     [Column("release_year")]
-    public int ReleaseYear { get; set; }
+    public required int ReleaseYear { get; set; }
 
+    [Required]
     [Column("duration")]
-    public int Duration { get; set; }
+    public required int Duration { get; set; }
 
-    [Column("content_rating")]
     [MaxLength(20)]
+    [Column("content_rating")]
     public string? ContentRating { get; set; }
 
-    [Column("genre")]
     [MaxLength(255)]
+    [Column("genre")]
     public string? Genre { get; set; }
 
     [Column("budget")]
