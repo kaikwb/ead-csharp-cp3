@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/rider,csharp,dotnetcore,intellij+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=rider,csharp,dotnetcore,intellij+all
+# Created by https://www.toptal.com/developers/gitignore/api/rider,csharp,dotnetcore,intellij+all,dotenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=rider,csharp,dotnetcore,intellij+all,dotenv
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -399,6 +399,10 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+### dotenv ###
+.env
+**/.env
+
 ### DotnetCore ###
 # .NET Core build folders
 bin/
@@ -545,4 +549,4 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 
-# End of https://www.toptal.com/developers/gitignore/api/rider,csharp,dotnetcore,intellij+all
+# End of https://www.toptal.com/developers/gitignore/api/rider,csharp,dotnetcore,intellij+all,dotenv
