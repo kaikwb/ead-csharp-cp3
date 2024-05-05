@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "d525ab38-9cb3-42b6-a08d-f2682ddcacb5",
+		"name": "ead-csharp-cp3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12305920"
+	},
+	"item": [
+		{
+			"name": "movies",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/movies/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/movies/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"original_title\": \"<string>\",\n  \"original_language\": \"<string>\",\n  \"release_year\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"content_rating\": \"<string>\",\n  \"genre\": \"<string>\",\n  \"budget\": \"<double>\",\n  \"revenue\": \"<double>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/movies/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"The Lord of the Rings: The Return of the King\",\n    \"original_title\": \"The Lord of the Rings: The Return of the King\",\n    \"original_language\": \"English\",\n    \"release_year\": 2024,\n    \"duration\": 201,\n    \"content_rating\": \"PG-13\",\n    \"genre\": \"Adventure\",\n    \"budget\": 94000000,\n    \"revenue\": 1118888979\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movies/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"original_title\": \"<string>\",\n  \"original_language\": \"<string>\",\n  \"release_year\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"content_rating\": \"<string>\",\n  \"genre\": \"<string>\",\n  \"budget\": \"<double>\",\n  \"revenue\": \"<double>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movies/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"original_title\": \"<string>\",\n  \"original_language\": \"<string>\",\n  \"release_year\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"content_rating\": \"<string>\",\n  \"genre\": \"<string>\",\n  \"budget\": \"<double>\",\n  \"revenue\": \"<double>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/movies/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/movies/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"The Lord of the Rings: The Return of the King\",\n    \"original_title\": \"The Lord of the Rings: The Return of the King\",\n    \"original_language\": \"English\",\n    \"release_year\": 2003,\n    \"duration\": 201,\n    \"content_rating\": \"PG-13\",\n    \"genre\": \"Adventure\",\n    \"budget\": 94000000,\n    \"revenue\": 1118888979\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/movies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"original_title\": \"<string>\",\n  \"original_language\": \"<string>\",\n  \"release_year\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"content_rating\": \"<string>\",\n  \"genre\": \"<string>\",\n  \"budget\": \"<double>\",\n  \"revenue\": \"<double>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"original_title\": \"<string>\",\n  \"original_language\": \"<string>\",\n  \"release_year\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"content_rating\": \"<string>\",\n  \"genre\": \"<string>\",\n  \"budget\": \"<double>\",\n  \"revenue\": \"<double>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/movies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/movies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"original_title\": \"<string>\",\n    \"original_language\": \"<string>\",\n    \"release_year\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"content_rating\": \"<string>\",\n    \"genre\": \"<string>\",\n    \"budget\": \"<double>\",\n    \"revenue\": \"<double>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"original_title\": \"<string>\",\n    \"original_language\": \"<string>\",\n    \"release_year\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"content_rating\": \"<string>\",\n    \"genre\": \"<string>\",\n    \"budget\": \"<double>\",\n    \"revenue\": \"<double>\"\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
